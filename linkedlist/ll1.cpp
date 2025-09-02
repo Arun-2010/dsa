@@ -53,11 +53,77 @@ int main() {
    second->next=third;
    third->next=fourth;
    fourth->next=fifth;
-   
+
 // printing the ll
 
    node*head=first;
 
 node::printll(head);
 node::printlength(head);
+}
+
+
+
+same but different way 
+#include <iostream>
+using namespace std;
+
+// Define the Node class
+class Node {
+public:
+    int data;
+    Node* next;
+
+    // change 1. Constructor with data
+    Node(int value) {
+        data = value;
+        next = NULL;
+    }
+
+    // Function to print the list
+    static void printList(Node* head) {
+        Node* temp = head;
+        while (temp != NULL) {
+            cout << temp->data << "->";
+            temp = temp->next;
+        }
+        cout << "NULL" << endl;
+    }
+
+    // Function to print the length of the list
+    static void printLength(Node* head) {
+        int count = 0;
+        Node* temp = head;
+        while (temp != NULL) {
+            count++;
+            temp = temp->next;
+        }
+        cout << "Length: " << count << endl;
+    }
+};
+
+int main() {
+    // Create 5 nodes
+    Node* first = new Node(10);
+    Node* second = new Node(20);
+    Node* third = new Node(30);
+    Node* fourth = new Node(40);
+    Node* fifth = new Node(50);
+
+    // Link the nodes
+    first->next = second;
+    second->next = third;
+    third->next = fourth;
+    fourth->next = fifth;
+
+    // Head of the list
+    Node* head = first;
+
+    // Print the linked list
+    Node::printList(head);
+
+    // Print the length of the list
+    Node::printLength(head);
+
+    return 0;
 }
