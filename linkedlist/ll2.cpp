@@ -144,17 +144,12 @@ void deltenode(node*& head, node*& tail, int position) {
 
 
 int main() {
-    node* first = new node(10);
-    node* second = new node(20);
-    node* third = new node(30);
-    node* fourth = new node(40);
-
-    first->next = second;
-    second->next = third;
-    third->next = fourth;
-
-    node* head = first;
-    node* tail = fourth;
+     node*head=NULL;
+    node*tail=NULL;
+    insertATbe(head,tail,40);
+    insertATbe(head, tail, 30);
+    insertATbe(head, tail, 20);
+    insertATbe(head, tail, 10);
 
     cout << "Before insert at beginning: ";
     printll(head);
