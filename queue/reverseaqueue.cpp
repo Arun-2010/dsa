@@ -15,3 +15,22 @@ class Solution {
         }
     }
 };
+
+
+
+
+// method 2 by recursion
+class Solution {
+  public:
+    void reverseQueue(queue<int> &q) {
+        // code here
+       if(q.empty()){
+       return;
+       }
+       
+       int ele=q.front();
+       q.pop();
+       reverseQueue(q);
+       q.push(ele);
+    }
+};
