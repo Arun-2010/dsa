@@ -1,5 +1,6 @@
 #include <iostream>
 using namespace std;
+#include<queue>
 
 class node {
 public:
@@ -61,6 +62,31 @@ void postorder(node* root) {
     cout << root->data << " ";
 }
 
+void levelorder(node*root){
+    queue<node*>q;
+    q.push(root);
+    q.push(NULL);
+    
+    while(!q.empty()){
+        node*front=q.front();
+        q.pop();
+        if(front==NULL){
+            cout<<endl;
+            q.push(NULL);
+    }
+    else{
+        //valid
+        cout<<front->data<<" ";
+        if(front->left!=NULL){
+            q.push(front->left);
+        }
+        if(front->right!=NULL){
+            q.push(front->right);
+        }
+    }
+}
+}
+
 int main() {
     node* root = createTree();
 
@@ -72,7 +98,10 @@ int main() {
 
     cout << "\nPostorder Traversal: ";
     postorder(root);
-
+    
+    cout << "\nlevel order: ";
+    levelorder(root);
+   
     cout << endl;
     return 0;
 }
@@ -96,6 +125,5 @@ Enter the value (-1 for NULL): -1
 Inorder Traversal: 5 10 15 
 Preorder Traversal: 10 5 15 
 Postorder Traversal: 5 15 10 
-
-
-=== Code Execution Successful ===
+level order: 10 
+5 15 
