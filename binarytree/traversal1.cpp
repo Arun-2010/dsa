@@ -72,7 +72,9 @@ void levelorder(node*root){
         q.pop();
         if(front==NULL){
             cout<<endl;
+            if(!q.empty()){
             q.push(NULL);
+            }
     }
     else{
         //valid
@@ -123,7 +125,7 @@ Enter right child of 15
 Enter the value (-1 for NULL): -1
 
 Inorder Traversal: 5 10 15 
-Preorder Traversal: 10 5 15 
+Preorder Traversal: 10 5 15  
 Postorder Traversal: 5 15 10 
 level order: 10 
 5 15 
