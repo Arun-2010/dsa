@@ -67,6 +67,26 @@ bool searchword(TrieNode*root,string word){
     
 }
 
+
+
+void deleteword(TrieNode*root,string word){
+    if(word.length()==0){
+        root->isTerminal=false;
+        return;
+    }
+    char ch=word[0];
+    int index=ch-'a';
+    TrieNode*child;
+    if(root->children[index]!=NULL){
+        child=root->children[index];
+    }
+    else{
+        return;
+    }
+    
+    deleteword(child,word.substr(1));
+}
+
 int main() {
 	// your code goes here
 	TrieNode*root=new TrieNode('-');
@@ -75,19 +95,30 @@ int main() {
 	
 	insertword(root,"time");
 	
+	
+	
+	
 	if(searchword(root,"time")){
-	    cout<<"found";
+	    cout<<"found"<<endl;
 	}
 	else{
-	    cout<<"not found";
+	    cout<<"not found"<<endl;
 	}
 	
+	
+	deleteword(root,"time");
+	
+	if(searchword(root,"time")){
+	    cout<<"found"<<endl;
+	}
+	else{
+	    cout<<"not found"<<endl;
+	}
 	
 	
 	
 
 }
-
 
 //output
 recieved word:donation
@@ -104,4 +135,5 @@ recieved word:ime
 recieved word:me
 recieved word:e
 recieved word:
+found
 not found
