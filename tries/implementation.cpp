@@ -17,7 +17,6 @@ class TrieNode{
     }
 };
 
-
 //insertion
 void insertword(TrieNode*root, string word){
     cout<<"recieved word:"<<word<<endl;
